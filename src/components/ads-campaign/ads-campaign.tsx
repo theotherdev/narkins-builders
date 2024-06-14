@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 
 const AdsCampaign: React.FC = ({
@@ -62,7 +62,7 @@ const AdsCampaign: React.FC = ({
     <div className="container border my-5 rounded bg-white mx-auto py-5 p-4">
       <div className={`grid gap-6 ${onlyForm ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-3'}`}>
         {!onlyForm && (
-          <>
+          <Fragment>
             <div className="image-column">
               <img
                 src={image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKae8kU5_6tMlx_wVGwVbbPTMbhekm6x__Sg&s"}
@@ -88,14 +88,20 @@ const AdsCampaign: React.FC = ({
                 </ul>
               </p>
             </div>
-          </>
+          </Fragment>
         )}
-        <div className="form-column">
+        <div className="form-column bg-[#C88A2D] rounded-lg p-4">
+          <div className="flex justify-center items-center w-full">
+            <img src="/default-avatar.jpg" className="rounded-full border-white border-[2.5px]" style={{ width: '5rem', height: 'auto', }} />
+          </div>
+          <div className="flex justify-center items-center text-center text-white my-4 w-full">
+            Fill this form below to schedule your site tour and recieve project details
+          </div>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-neutral-50"
               >
                 Name
               </label>
@@ -103,7 +109,7 @@ const AdsCampaign: React.FC = ({
                 type="text"
                 name="name" required
                 id="name"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm"
+                className="mt-1 block w-full rounded-md p-2 bg-tranparent shadow-sm focus:border-black focus:ring-black sm:text-sm"
                 placeholder="Your Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -112,7 +118,7 @@ const AdsCampaign: React.FC = ({
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-neutral-50"
               >
                 Email
               </label>
@@ -120,7 +126,7 @@ const AdsCampaign: React.FC = ({
                 type="email"
                 name="email"
                 id="email" required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm"
+                className="mt-1 block w-full rounded-md p-2 bg-tranparent border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -129,7 +135,7 @@ const AdsCampaign: React.FC = ({
             <div>
               <label
                 htmlFor="number"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-neutral-50"
               >
                 Phone Number
               </label>
@@ -137,13 +143,13 @@ const AdsCampaign: React.FC = ({
                 type="tel"
                 name="number"
                 id="number" required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm"
+                className="mt-1 block w-full rounded-md p-2 bg-tranparent border-gray-300 shadow-sm focus:border-black focus:ring-black sm:text-sm"
                 placeholder="Your Phone Number"
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
               />
             </div>
-            <div>
+            {/* <div>
               <label
                 htmlFor="residency"
                 className="block text-sm font-medium text-gray-700"
@@ -164,13 +170,13 @@ const AdsCampaign: React.FC = ({
                   Hill Crest Residency
                 </option>
               </select>
-            </div>
-            <div>
+            </div> */}
+            <div className="pt-[5rem]">
               <button
                 type="submit" disabled={loading}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
               >
-                I am interested
+                {`I am interested`.toUpperCase()}
               </button>
             </div>
           </form>
