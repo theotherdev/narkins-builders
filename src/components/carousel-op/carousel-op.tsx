@@ -9,13 +9,15 @@ export function Carousel({
     loop = true,
     rightToLeft = false,
     hideIndicators = false,
-    interval = 10000, isNotRounded=false,
+    interval = 10000, isNotRounded = false, onChange = (newIndex: number) => { }
 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [touchStart, setTouchStart] = useState(0);
     const [touchEnd, setTouchEnd] = useState(0);
     const timeoutRef = useRef(null);
-
+    useEffect(() => {
+        onChange(currentIndex);
+    }, [currentIndex])
     useEffect(() => {
         if (autoPlay) {
             startSlideShow();
@@ -79,7 +81,7 @@ export function Carousel({
             >
                 {dataSource.map((item, index) => (
                     <div key={index} className="flex-none w-full h-full flex items-center justify-center">
-                        <img src={item.image} loading={index === 0 ? "eager" : "lazy"} alt={`Slide ${index}`} style={{objectFit: 'cover', flex: 1}} className="w-full h-full" />
+                        <img src={item.image} loading={index === 0 ? "eager" : "lazy"} alt={`Slide ${index}`} style={{ objectFit: 'cover', flex: 1 }} className="w-full h-full" />
                     </div>
                 ))}
             </div>

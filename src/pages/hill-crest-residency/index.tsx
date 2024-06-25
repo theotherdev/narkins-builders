@@ -46,6 +46,7 @@ export default function NarkinsBoutiqueResidency() {
     }
     const [query, setQuery] = useState('')
     const matches = useMediaQuery('(min-width: 768px)');
+    const [amenityIndex, setAmenityIndex] = useState(0);
 
     const filteredPeople =
         query === ''
@@ -160,7 +161,7 @@ export default function NarkinsBoutiqueResidency() {
                         </p>
                     </div>
                     <div className="max-w-7xl w-full px-5 mx-auto overflow-hidden">
-                        <ul className="col-span-3 mb-4 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+                        <ul className="col-span-3 mb-4 grid- hidden grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
                             {[
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp", "Gym"],
                                 ["http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg", "Prayer Area"],
@@ -189,22 +190,39 @@ export default function NarkinsBoutiqueResidency() {
                                 </li>
                             ))}
                         </ul>
-                        <Carousel
-                            id='carousel'
-                            swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop rightToLeft
-                            hideIndicators={true} className="w-full rounded-xl h-[30rem]" displayMode="default"
-                            dataSource={[
-                                "/hcr-scaled/gym.png",
-                                "/hcr-scaled/grand-lobby.png",
-                                "/hcr-scaled/mosque.png",
-                                "/hcr-scaled/steam-bath.png",
 
-                                // "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp",
-                                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg",
-                                // "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp",
-                                // "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp"
-                            ].map((i, _) => ({ image: i }))}
-                        />
+                        <div className="relative h-full w-full">
+                            <Carousel
+                                id="carousel"
+                                swipe
+                                hideArrows={!matches}
+                                autoPlay={false}
+                                slideShow={false}
+                                loop
+                                rightToLeft
+                                hideIndicators={true} onChange={setAmenityIndex}
+                                className="w-full rounded-xl h-[30rem]"
+                                displayMode="default"
+                                dataSource={[
+                                    "/hcr-scaled/gym.jpg",
+                                    "/hcr-scaled/grand-lobby.jpg",
+                                    "/hcr-scaled/mosque.jpg",
+                                    "/hcr-scaled/steam-bath.jpg",
+                                    // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Mosque-with-title.webp",
+                                    // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Play-Area-with-title.webp",
+                                    // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Pool-with-title.webp",
+                                    // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Reception-with-title.webp",
+                                    // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Steam-Bath-with-title.webp",
+                                    // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Billiard-Rooms-with-title.webp",
+                                    // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Gym-with-title.webp",
+                                ].map((i, _) => ({ image: i }))}
+                            />
+                            <div className="p-4 px-0">
+                                <h2 className="mt-2 font-bold text-lg leading-8 text-gray-800">
+                                    {['Gym', 'Grand Lobby', 'Mosque', 'Steam Bath'][amenityIndex]}
+                                </h2>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <section className="bg-neutral-100 px-5 py-[4rem] lg:px-8">

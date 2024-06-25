@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/": "pages/index.js",
   "/narkins-boutique-residency": "pages/narkins-boutique-residency.js",
-  "/": "pages/index.js"
+  "/hill-crest-residency": "pages/hill-crest-residency.js"
 }

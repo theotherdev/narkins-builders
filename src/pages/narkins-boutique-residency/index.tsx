@@ -95,7 +95,7 @@ export default function NarkinsBoutiqueResidency() {
   };
   // const [query, setQuery] = useState('')
   const matches = useMediaQuery("(min-width: 768px)");
-
+  const [amenityIndex, setAmenityIndex] = useState(0);
   return (
     <main>
       <Head>
@@ -265,7 +265,7 @@ export default function NarkinsBoutiqueResidency() {
             </p>
           </div>
           <div className="max-w-7xl w-full px-5 mx-auto overflow-hidden">
-            <ul className="col-span-3 mb-4 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+            <ul className="col-span-3 mb-4 hidden -grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
               {[
                 [
                   "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp",
@@ -316,32 +316,39 @@ export default function NarkinsBoutiqueResidency() {
                 </li>
               ))}
             </ul>
-            <Carousel
-              id="carousel"
-              swipe
-              hideArrows={!matches}
-              autoPlay={false}
-              slideShow={false}
-              loop onChange={console.log}
-              rightToLeft
-              hideIndicators={true}
-              className="w-full rounded-xl h-[30rem]"
-              displayMode="default"
-              dataSource={[
-                "/ncr-scaled/gym.png",
-                "/ncr-scaled/play-area.png",
-                "/ncr-scaled/pool.png",
-                "/ncr-scaled/reception.png",
-                "/ncr-scaled/snooker.png",
-                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Mosque-with-title.webp",
-                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Play-Area-with-title.webp",
-                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Pool-with-title.webp",
-                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Reception-with-title.webp",
-                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Steam-Bath-with-title.webp",
-                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Billiard-Rooms-with-title.webp",
-                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Gym-with-title.webp",
-              ].map((i, _) => ({ image: i }))}
-            />
+            <div className="relative h-full w-full">
+              <Carousel
+                id="carousel"
+                swipe
+                hideArrows={!matches}
+                autoPlay={false}
+                slideShow={false}
+                loop
+                rightToLeft
+                hideIndicators={true} onChange={setAmenityIndex}
+                className="w-full rounded-xl h-[30rem]"
+                displayMode="default"
+                dataSource={[
+                  "/ncr-scaled/gym.png",
+                  "/ncr-scaled/play-area.png",
+                  "/ncr-scaled/pool.png",
+                  "/ncr-scaled/reception.png",
+                  "/ncr-scaled/snooker.png",
+                  // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Mosque-with-title.webp",
+                  // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Play-Area-with-title.webp",
+                  // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Pool-with-title.webp",
+                  // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Reception-with-title.webp",
+                  // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Steam-Bath-with-title.webp",
+                  // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Billiard-Rooms-with-title.webp",
+                  // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Gym-with-title.webp",
+                ].map((i, _) => ({ image: i }))}
+              />
+              <div className="p-4 px-0">
+                <h2 className="mt-2 font-bold text-lg leading-8 text-gray-800">
+                  {['Gym', 'Play Area', 'Pool', 'Reception', 'Snooker'][amenityIndex]}
+                </h2>
+              </div>
+            </div>
           </div>
         </section>
         <section className="bg-neutral-100 px-5 py-[4rem] lg:px-8">
@@ -464,10 +471,10 @@ export default function NarkinsBoutiqueResidency() {
                         <li key={starIndex}>
                           <i
                             className={`fas ${star === true
-                                ? "fa-star text-yellow-400"
-                                : star === "half"
-                                  ? "fa-star-half-alt text-yellow-400"
-                                  : "far fa-star text-yellow-400"
+                              ? "fa-star text-yellow-400"
+                              : star === "half"
+                                ? "fa-star-half-alt text-yellow-400"
+                                : "far fa-star text-yellow-400"
                               }`}
                           />
                         </li>
