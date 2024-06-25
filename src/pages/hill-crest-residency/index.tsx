@@ -194,10 +194,15 @@ export default function NarkinsBoutiqueResidency() {
                             swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop rightToLeft
                             hideIndicators={true} className="w-full rounded-xl h-[30rem]" displayMode="default"
                             dataSource={[
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp",
-                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp"
+                                "/hcr-scaled/gym.png",
+                                "/hcr-scaled/grand-lobby.png",
+                                "/hcr-scaled/mosque.png",
+                                "/hcr-scaled/steam-bath.png",
+
+                                // "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp",
+                                // "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg",
+                                // "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp",
+                                // "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp"
                             ].map((i, _) => ({ image: i }))}
                         />
                     </div>

@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/__/ads-landing-nbr": "pages/__/ads-landing-nbr.js",
   "/narkins-boutique-residency": "pages/narkins-boutique-residency.js",
   "/": "pages/index.js"
 }

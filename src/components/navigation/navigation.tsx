@@ -105,7 +105,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
     <div className={`text-white ${transparent ? "bg-transparent" : "bg-transparent"}`}>
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-[99999] lg:hidden" onClose={setOpen}>
+        <Dialog as="div" className="relative lg:hidden" onClose={setOpen}>
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -118,7 +118,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-[99999] flex">
+          <div className="fixed inset-0 flex">
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"
@@ -170,7 +170,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
                                 <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
                               </div>
                               <a href={item.href} className="mt-6 text-black block font-medium ">
-                                <span className="absolute inset-0 z-10" aria-hidden="true" />
+                                <span className="absolute inset-0" aria-hidden="true" />
                                 {item.name}
                               </a>
                             </div>
@@ -215,7 +215,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
         </Dialog>
       </Transition.Root>
 
-      <header style={{ backdropFilter: 'blur(5px)', background: 'rgba(255, 255, 255, 0.925)' }} className={`${isFixed ? "fixed" : "static"} top-0 w-[100vw] z-[999] ${transparent ? "bg-transparent" : ""} ${transparent ? 'text-white' : 'text-gray-800'}`}>
+      <header style={{ backdropFilter: 'blur(5px)', zIndex: 100, background: 'rgba(255, 255, 255, 0.925)' }} className={`${isFixed ? "fixed" : "absolute"} top-0 w-[100vw] ${transparent ? "bg-transparent" : ""} ${transparent ? 'text-white' : 'text-gray-800'}`}>
         {/* <p className="flex h-10 items-center justify-center bg-black px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p> */}
@@ -246,7 +246,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden z-[99999] lg:ml-8 lg:block lg:self-stretch">
+              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
                     <Popover key={category.name} className="flex">
@@ -258,7 +258,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
                                 open
                                   ? 'border-neutral-600 text-neutral-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-[99] -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
+                                'relative -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                               )}
                             >
                               {category.name}
@@ -292,7 +292,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
                                             />
                                           </div>
                                           <a href={item.href} className="mt-6 block font-medium">
-                                            <span className="absolute inset-0 z-10" aria-hidden="true" />
+                                            <span className="absolute inset-0" aria-hidden="true" />
                                             {item.name}
                                           </a>
                                         </div>

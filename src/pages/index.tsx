@@ -101,7 +101,7 @@ export default function Home() {
         /> */}
         <header className="relative flex items-center justify-center min-h-[70vh] overflow-hidden">
           <div
-            className="relative z-1 text-white"
+            className="relative z-10 text-white"
           >
             <div className="mx-auto px-4">
               <div className="row">
@@ -137,7 +137,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <video ref={videoRef} preload='yes' pposter='/videoframe_0.png' style={{zIndex: -99}} className="max-h-screen- absolute w-auto min-w-full min-h-full filter brightness-50 max-w-none"
+          <video ref={videoRef} preload='yes' pposter='/videoframe_0.png' className="max-h-screen- absolute w-auto min-w-full min-h-full filter brightness-50 max-w-none"
             loop autoPlay={true} playsInline={true} muted={true} controls={false} disablePictureInPicture>
             <source src="hero-bg.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -146,7 +146,7 @@ export default function Home() {
 
           {/* <video
             preload="yes" playsInline={true} controls loop={true} muted={true} autoPlay
-            className="absolute z-1 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
+            className="absolute z-10 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
           >
             <source
               src="https://www.w3schools.com/html/movie.mp4"
