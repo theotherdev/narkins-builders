@@ -5,18 +5,20 @@ const AdsCampaign: React.FC = ({
   headline,
   image,
   features,
-  onlyForm
+  onlyForm,
+  residency,
 }: {
   headline: string;
   image: string;
   onlyForm?: boolean,
   features: Array<string>;
+  residency: "Narkin's Boutique Residency" | "Hill Crest Residency" | "General"
 }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
-  const [residency, setResidency] = useState("Narkin's Boutique Residency");
+  // const [residency, setResidency] = useState("Narkin's Boutique Residency");
   const [responseMessage, setResponseMessage] = useState("");
 
   const handleSubmit = async (event: React.FormEvent) => {

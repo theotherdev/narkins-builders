@@ -10,7 +10,7 @@ import Link from 'next/link';
 import Testimonials from '@/components/testimonials/testimonials';
 import BlogsSection from '@/components/blogs-section/blogs-section';
 import Carousel from "@/components/carousel-op/carousel-op";
-import AdsCampaign from '@/components/ads-campaign/ads-campaign';
+// import AdsCampaign from '@/components/ads-campaign/ads-campaign';
 import { useGlobalLeadFormState } from '@/zustand';
 
 const navigation = [

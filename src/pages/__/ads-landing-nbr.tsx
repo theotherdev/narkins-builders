@@ -8,7 +8,7 @@ export default function AdsLandingPage() {
       <div className="bg-white pt-[6rem]">
         <div className="relative isolate overflow-hidden py-20 pt-5 sm:py-[28px]">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <AdsCampaign
+            <AdsCampaign residency="Narkin's Boutique Residency"
               onlyForm={false}
               image={'http://admin.narkinsbuilders.com/wp-content/uploads/2024/06/NBR-landing-page-photo.png'}
               headline={"2, 3 & 4 Bedroom Luxury Apartments"}
