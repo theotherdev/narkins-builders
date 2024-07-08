@@ -105,7 +105,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
     <div className={`text-white ${transparent ? "bg-transparent" : "bg-transparent"}`}>
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative lg:hidden" onClose={setOpen}>
+        <Dialog as="div" className="relative lg:hidden z-[100]" onClose={setOpen}>
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"

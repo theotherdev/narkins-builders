@@ -3,6 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/narkins-boutique-residency": "pages/narkins-boutique-residency.js",
-  "/hill-crest-residency": "pages/hill-crest-residency.js"
+  "/about": "pages/about.js"
 }
