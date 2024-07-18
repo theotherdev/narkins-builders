@@ -195,7 +195,7 @@ export default function NarkinsBoutiqueResidency() {
                             <Carousel
                                 id="carousel"
                                 swipe
-                                hideArrows={!matches}
+                                // hideArrows={!matches}
                                 autoPlay={false}
                                 slideShow={false}
                                 loop
