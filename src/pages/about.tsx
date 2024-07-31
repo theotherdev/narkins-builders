@@ -3,7 +3,7 @@ import Navigation from "@/components/navigation/navigation";
 import Head from "next/head";
 import { Fragment } from "react";
 
-const Inovations = ['Reliability', 'Smart Door Lock', 'Smart Door Lock'];
+const Inovations = ['Reliability', 'Smart Door Locks', 'Smart Switches'];
 export default function AboutUs() {
     return (
         <Fragment>
