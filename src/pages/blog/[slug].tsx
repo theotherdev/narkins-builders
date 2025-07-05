@@ -1,13 +1,17 @@
+'use server';
+// bun add @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+// 
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote/rsc'
 import { getAllPostsServer, getPostBySlugServer } from '../../lib/blog-server'
 import { BlogPost } from '../../lib/blog'
 import BlogLayout from '../../components/blog/blog-layout'
 
 interface BlogPostProps {
-  post: BlogPost
-  mdxSource: MDXRemoteSerializeResult
+  // Content is not nessesary in rendering UI, and increases page size. 
+  post: BlogPost,
+  // mdxSource: MDXRemoteSerializeResult
 }
 
 // ✅ FIXED: Enhanced MDX components for better content rendering
@@ -240,12 +244,12 @@ const components = {
   )
 }
 
-export default function BlogPost({ post, mdxSource }: BlogPostProps) {
+export default function BlogPost({ post }: BlogPostProps) {
   return (
     <BlogLayout post={post}>
       {/* ✅ FIXED: Proper MDX content container with enhanced typography */}
       <div className="prose prose-lg max-w-none mx-auto">
-        <MDXRemote {...mdxSource} components={components} />
+        <MDXRemote source={post.content} components={components} lazy={true} />
       </div>
     </BlogLayout>
   )
@@ -274,18 +278,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   // ✅ FIXED: Enhanced MDX serialization with better options
-  const mdxSource = await serialize(post.content, {
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-      development: process.env.NODE_ENV === 'development',
-    },
-  })
+  // const mdxSource = await serialize(post.content, {
+  //   mdxOptions: {
+  //     remarkPlugins: [],
+  //     rehypePlugins: [],
+  //     development: process.env.NODE_ENV === 'development',
+  //   },
+  // })
 
   return {
     props: {
       post,
-      mdxSource
+      // mdxSource
     },
     revalidate: 60
   }
